@@ -15,16 +15,19 @@ $productDescription = trim($_POST['description']);
 $productCategory = $_POST['category'];
 
 if (empty($productName)) {
-    redirect('/add-category.php?error=' . ProductError::NAME_REQUIRED);
+    redirect('/add-category.php?error=' . Product_Error::NAME_REQUIRED);
 }
 if (empty($productPrice)) {
-    redirect('/add-category.php?error=' . ProductError::PRICE_REQUIRED);
+    redirect('/add-category.php?error=' . Product_Error::PRICE_REQUIRED);
 }
 if (empty($productCover)) {
-    redirect('/add-category.php?error=' . ProductError::COVER_REQUIRED);
+    redirect('/add-category.php?error=' . Product_Error::COVER_REQUIRED);
 }
 if (empty($productDescription)) {
-    redirect('/add-category.php?error=' . ProductError::DESCRIPTION_REQUIRED);
+    redirect('/add-category.php?error=' . Product_Error::DESCRIPTION_REQUIRED);
+}
+if (empty($productCategory)) {
+    redirect('/add-category.php?error=' . Product_Error::CATEGORY_REQUIRED);
 }
 
 try {

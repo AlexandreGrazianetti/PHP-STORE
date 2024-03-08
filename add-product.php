@@ -16,8 +16,7 @@ require_once __DIR__ . '/layout/header.php';
     $categoriesDb = new Categories();
     $categories = $categoriesDb->findAll();
     ?>
-
-    <form action="add-product-process.php" method="POST">
+    <form action="C:\Users\alexG\Bureau\Licence Info\NFE114\Php-store\add-product.php" method="POST">
         <div>
             <label for="name">Nom :</label>
             <input type="text" name="name" id="name" />
@@ -25,10 +24,6 @@ require_once __DIR__ . '/layout/header.php';
         <div>
             <label for="price">Prix :</label>
             <input type="text" name="price" id="price" />
-        </div>
-        <div>
-            <label for="cover">Image :</label>
-            <input type="text" name="cover" id="cover" />
         </div>
         <div>
             <label for="description">Description :</label>
@@ -43,9 +38,8 @@ require_once __DIR__ . '/layout/header.php';
                 </option>
                 <?php } ?>
             </select>
-            <?php
-                require_once __DIR__.'Uplaod.php';
-            ?>
+        <label for="file">Sélectionner une image pour ajouter votre produit :</label><br>
+        <input type="file" name="file"><br>
         </div>
         <div>
             <input type="submit" value="Enregistrer" />

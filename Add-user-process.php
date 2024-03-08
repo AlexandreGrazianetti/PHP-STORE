@@ -1,21 +1,24 @@
 <?php
-//TODO : créer la table des utilisateurs et procéder aux tests si ça ne fonctionne pas prend des notes..
 require_once __DIR__.'/classes/Database.php';
 require_once __DIR__.'/functions/utils.php';
 require_once __DIR__.'/classes/UserError.php';
 
-if (!isset($_POST['mail']) || !isset($_POST['password'])){
+if (!isset($_POST['mail']) || !isset($_POST['password']) || !isset($_POST['name'])){
     redirect('/');
 }
 
+$username = trim($_POST['name']);
 $usermail = trim($_POST['mail']);
 $userpassword = trim($_POST['password']);
 
+if(empty($username)){
+    redirect('/Inscription.php?error=' . UserError::NAME_REQUIRED);
+}
 if(empty($usermail)){
-    redirect('/add-category.php?error=' . UserError::MAIL_REQUIRED);
+    redirect('/Inscription.php?error=' . UserError::MAIL_REQUIRED);
 }
 if (empty($userpassword)){
-    redirect('/add-category.php?error=' . UserError::PASSWORD_REQUIRED);
+    redirect('/Inscription.php?error=' . UserError::PASSWORD_REQUIRED);
 }
 
 try {
@@ -25,8 +28,9 @@ try {
     exit;
 }
 
-$stmt = $pdo->prepare("INSERT INTO user (name, mail, password) VALUES (:usermail, :userpassword");
+$stmt = $pdo->prepare("INSERT INTO user (name, mail, password) VALUES (:username, :usermail, :userpassword");
 $stmt->execute([
+    'username'=>$username,
     'usermail'=> $usermail,
     'userpassword'=> $userpassword
 ]);

@@ -11,12 +11,12 @@
 <body>
     <header>
         <nav>
+            <img style="height: 5em;"src="Image/logo_monster.png"/>
             <ul>
-                <li><a href="#">MENU ITEM</a></li>
-                <li><a href="#">MENU ITEM</a></li>
-                <li><a href="#">MENU ITEM</a></li>
-                <li><a href="#">MENU ITEM</a></li>
-                <li><a href="#">MENU ITEM</a></li>
+                <li><a href="Categories.php">Catégories</a></li>
+                <li><a href=".php">Contact</a></li>                
+                <li><a href=".php">à propos</a></li>
+                <li><a href="Connect.php">Connexion</a></li>
             </ul>
         </nav>
     </header>

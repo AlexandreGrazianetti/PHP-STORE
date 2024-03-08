@@ -22,6 +22,9 @@ $categories = $categoriesDb->findAll();
         <div><?php echo $category['name']; ?></div>
     </div>
     <?php } ?>
+    <div>
+        <button href="add-category.php">Nouveau Produit</button>
+    </div>
 </div>
 
 <?php require_once __DIR__ . '/layout/footer.php'; ?>

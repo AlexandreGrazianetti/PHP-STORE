@@ -32,4 +32,11 @@ abstract class Table
 
         return $result;
     }
+    public function ShowProduct():array
+    {
+        $stmt=$this->pdo->query("SELECT product.name, product.price_vat_free, product.cover, product.description, category.name AS nom_categorie
+        FROM product
+        INNER JOIN category ON product.category_id = category.id");
+        return $stmt->fetchAll(PDO::FETCH_ASSOC);
+    }
 }

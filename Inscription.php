@@ -1,3 +1,6 @@
+<?php
+require_once __DIR__.'/layout/header.php';
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -42,7 +45,7 @@
 <body>
 <div class="container">
     <!--Essaie de connecter à la bdd en créant une table nommée user-->
-    <form action="add-user.php" method="post">
+    <form action="add-user-process.php" method="post">
         <label for="username"><b>Nom d'utilisateur</b></label>
         <input type="text" placeholder="Entrer le nom d'utilisateur" name="username" required>
 
@@ -52,9 +55,10 @@
         <label for="password"><b>Mot de passe</b></label>
         <input type="password" placeholder="Entrer le mot de passe" name="password" required>
 
-        <button type="submit">S'inscrire</button>
+        <button type="submit">S'inscrire</button><br>
+        <button onclick="window.location.href='Connect.php'">Se connecter</button>
     </form>
 </div>
-
-</body>
-</html>
+<?php
+require_once __DIR__.'/layout/footer.php';
+?>
